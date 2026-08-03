@@ -90,6 +90,10 @@ reportIndexIssue = false
 line-length = 88
 target-version = "py311"
 exclude = ["build/", ".cache/", "jaxmarl/tutorials/"]
+# Newer ruff formats Python code blocks inside Markdown; the repo's existing
+# .md files predate that and are not formatted to it. Exclude Markdown so
+# `ruff format --check` matches the repo's actual (Python-only) style policy.
+extend-exclude = ["*.md"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]   # pycodestyle errors, pyflakes, isort
